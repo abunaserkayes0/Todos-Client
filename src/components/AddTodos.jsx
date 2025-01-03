@@ -24,12 +24,14 @@ export default function AddTodos() {
       })
 
       .then((response) => {
+        setMessages("");
         const { insertedId } = response.data;
         if (insertedId) {
           setMessages("Todo added successfully!");
-          navigate("/todos");
           form.reset();
-          setMessages("");
+          setTimeout(() => {
+            navigate("/todos");
+          }, 2000);
         }
       })
 
